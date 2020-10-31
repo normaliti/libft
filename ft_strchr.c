@@ -20,6 +20,6 @@ char	*ft_strchr(const char *str, int sym)
 			str++;
 	}
 	if(sym == '\0')
-		return (str);
+		return ((char*)str);
 	return (0);
 }

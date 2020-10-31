@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	ft_bzero(void *b, ssize_t len);
+void	ft_bzero(void *b, size_t len);
 
 void *ft_calloc(size_t count, size_t size)
 {

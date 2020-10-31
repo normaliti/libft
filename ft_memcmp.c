@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char *tmp1;
 	unsigned char *tmp2;
 	
-	tmp1 = s1;
-	tmp2 = s2;
+	tmp1 = (unsigned char*)s1;
+	tmp2 = (unsigned char*)s2;
 	
 	while((*tmp1 || *tmp2) && n > 0)
 	{
