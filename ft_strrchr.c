@@ -10,15 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strrchr(const char *str, int sym)
 {
 	const char *poz = 0;
-	
+
 	while(*str)
 	{
 		if(*str == (char)sym)
 			poz = str;
 		str++;
 	}
+	if (sym == '\0')
+		return ((char *)str);
 	return ((char *)poz);
 }

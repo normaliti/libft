@@ -37,5 +37,7 @@ char	*ft_strdup(char *src)
 
 	len = ft_strlen(src);
 	copy = (char*)malloc((len + 1) * sizeof(char));
+	if(copy == NULL)
+		return (0);
 	return (ft_strcpy(copy, src));
 }
