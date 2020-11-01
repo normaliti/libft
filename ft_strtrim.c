@@ -10,14 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*buf;
+	char	*start;
 	int i;
 	
-	buf = (char*)malloc(ft_strlen(s1) + 1);
-	if(buf==NULL)
-		return (NULL);
+	//buf = (char*)malloc(ft_strlen(s1) + 1);
+	//if(buf==NULL)
+	//return (NULL);
+	j = 0;
 	while(*s1)
 	{
 		i = 0;
@@ -27,7 +31,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 				break;
 			else
 			{
-				*buf = set[i]
+				*buf = set[i];
 				buf++;
 				i++;
 			}
