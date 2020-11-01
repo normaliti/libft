@@ -8,8 +8,7 @@
 
 typedef struct	s_list
 {
-	void	*list;
-	size_t	list_size;
+	void	*content;
 	struct s_list	*next;
 }	t_list;
 
@@ -45,4 +44,6 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_itoa(int n);
 char	*ft_strtrim(char const *s1, char const *set);
+t_list  *ft_lstnew(void *content);
+void    ft_lstadd_front(t_list **lst, t_list *new);
 #endif
