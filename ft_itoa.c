@@ -31,7 +31,7 @@ char *ft_itoa(int n)
 
 	nbr = n;
 	size = ft_get_size(n);
-	if(!(res = malloc(size + 1)))
+	if(!(res = malloc(sizeof(char)*(size + 1))))
 		return (NULL);
 	res[size--] = '\0';
 	if(n < 0)
