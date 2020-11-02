@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lweeper <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/02 14:57:34 by lweeper           #+#    #+#             */
+/*   Updated: 2020/11/02 14:57:45 by lweeper          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_get_size(int n)
+int		ft_get_size(int n)
 {
-	int	i;
-	long int nbr;
+	int				i;
+	unsigned int	nbr;
 
-	if(n < 0)
+	if (n < 0)
 	{
-		nbr = (-1)*n;
+		nbr = (-1) * n;
 		i = 2;
 	}
 	else
@@ -23,26 +35,27 @@ int	ft_get_size(int n)
 	return (i);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	int		size;
-	char		*res;
-	long int	nbr;
+	int				size;
+	char			*res;
+	unsigned int	nbr;
+	int				ind;
 
 	nbr = n;
 	size = ft_get_size(n);
-	if(!(res = malloc(sizeof(char)*(size + 1))))
+	if (!(res = malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	res[size--] = '\0';
-	if(n < 0)
+	if (n < 0)
+		nbr = (-1) * n;
+	ind = size - 1;
+	while (ind >= 0)
 	{
-		nbr = (-1)*n;
-		res[0]='-';
-	}
-	while (nbr)
-	{
-		res[size--] = 48 + nbr % 10;
+		res[ind--] = 48 + nbr % 10;
 		nbr = nbr / 10;
 	}
+	res[size] = '\0';
+	if (n < 0)
+		res[0] = '-';
 	return (res);
 }
