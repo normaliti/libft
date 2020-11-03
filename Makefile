@@ -30,6 +30,6 @@ fclean: clean
 	rm -f $(NAME)
 re: fclean all
 
-bonus: $(OBJ_BONUS)
-	ar rc $(NAME) $(OBJ_BONUS)
+bonus: $(OBJ) $(OBJ_BONUS)
+	ar rc $(NAME) $(OBJ)  $(OBJ_BONUS)
 	ranlib $(NAME)	
