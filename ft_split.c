@@ -12,47 +12,88 @@
 
 #include "libft.h"
 
-int		ft_word_count(char const *s, char c)
+int		ft_word_count(char const *str, char c)
 {
-	int	state;
-	int	word_count;
+	int	is_it_word;
+	int words_num;
+	int i;
 
-	state = 0;
-	word_count = 0;
-	while (*s)
+	is_it_word = 0;
+	words_num = 0;
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if(*s == c)
+		if (str[i] != c && is_it_word == 0)
 		{
-			state = 0;
-			s++;
+			words_num = words_num + 1;
+			is_it_word = 1;
 		}
-		else if (state == 0)
+		else if (str[i] == c)
 		{
-			state = 1;
-			word_count++;
-			s++;
+			is_it_word = 0;
 		}
-		else
-			s++;
+		i++;
 	}
-	return (word_count);
+	return (words_num);
 }
 
-
-char	**ft_split(char const *s, char c)
+int		s_len(char const *str, char c)
 {
-	char		**res;
-	char set[1];
-	set[0] = c;
-	char const *trim_s = ft_strtrim(s, set);
+	int i;
 
-	int			len;
+	i = 0;
+	while (str[i] != '\0' && str[i] != c)
+		i++;
+	return (i);
+}
 
-	len = ft_word_count(trim_s, c);
-	printf("word count is %d", len);
-	res = malloc(sizeof(char *) * (len + 1));
+char	*ft_strncpy(char  *dest, char  const *src, unsigned int n)
+{
+	unsigned int i;
 
-	res[len] = NULL;
-	return (res);
+	i = 0;
+	while (src[i] != '\0' && i < n)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	if (i < n && src[i] == '\0')
+	{
+		while (dest[i] != '\0')
+		{
+			dest[i] = '\0';
+			i++;
+		}
+	}
+	dest[i] = '\0';
+	return (dest);
+}
 
+char	**ft_split(char const *str, char c)
+{
+	int		tot_w;
+	char	**arr;
+	int		is_it_word;
+	int		i;
+
+	arr = (char **)malloc((ft_word_count(str, c) + 1) * sizeof(char *));
+	is_it_word = 0;
+	tot_w = 0;
+	i = -1;
+	while (str[++i] != '\0')
+	{
+		if (str[i] != c && is_it_word == 0)
+		{
+			is_it_word = 1;
+			arr[tot_w] = (char *)malloc((s_len(&str[i], c) + 1) * sizeof(char));
+			arr[tot_w] = ft_strncpy(arr[tot_w], &str[i], s_len(&str[i], c));
+			tot_w++;
+			i = i + s_len(&str[i], c) - 1;
+		}
+		else if (str[i] == c)
+			is_it_word = 0;
+		//i++;
+	}
+	arr[tot_w] = 0;
+	return (arr);
 }

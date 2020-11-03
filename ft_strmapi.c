@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lweeper <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/30 16:10:15 by lweeper           #+#    #+#             */
-/*   Updated: 2020/11/02 11:02:48 by lweeper          ###   ########.fr       */
+/*   Created: 2020/11/03 16:02:10 by lweeper           #+#    #+#             */
+/*   Updated: 2020/11/03 16:02:14 by lweeper          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_substr(char const  *s, unsigned int start, size_t n)
+char *ft_strmapi(char const *s, char(*f)(unsigned int, char))
 {
-	char *buf;
+	char *p;
 	int i;
 	
+	p = NULL;
 	i = 0;
-	buf = (char *)malloc(sizeof(char) * (n + 1));
-	if (buf == NULL || s == NULL)
-		return NULL;
-	if (start >= ft_strlen(s))
+	if(s && f && (p = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1))))
 	{
-		buf[i] = '\0';
-		return (buf);
+		while (s[i])
+		{
+			p[i] = (*f)(i, s[i]);
+			i++;
+		}
+		p[i] = '\0';
 	}
-	while( n > 0 && s[start] != '\0')
-	{
-		buf[i] = s[start];
-		start++;
-		i++;
-		n--;
-	}
-	buf[i] = '\0';
-	return (buf);
+	return (p);
 }
