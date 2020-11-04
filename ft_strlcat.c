@@ -11,30 +11,32 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-size_t ft_strlen(const char *str);
-size_t ft_strlcat(char *dst, const char *src, size_t dsize)
+
+size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 {
-	const char *odst = dst;
-	const char *osrc = src;
-	size_t n = dsize;
-	size_t dlen;
+	const char	*prev_dst;
+	const char	*prev_src;
+	size_t		n;
+	size_t		dlen;
 
-	/* Find the end of dst and adjust bytes left but don't go past end. */
-	while (n-- != 0 && *dst != '\0')
+	prev_dst = dst;
+	prev_src = src;
+	n = dsize;
+	while ((n--) > 0 && *dst)
 		dst++;
-	dlen = dst - odst;
+	dlen = dst - prev_dst;
 	n = dsize - dlen;
-
 	if (n-- == 0)
-		return(dlen + ft_strlen(src));
-	while (*src != '\0') {
-		if (n != 0) {
+		return (dlen + ft_strlen(src));
+	while (*src)
+	{
+		if (n != 0)
+		{
 			*dst++ = *src;
 			n--;
 		}
 		src++;
 	}
 	*dst = '\0';
-
-	return(dlen + (src - osrc));	/* count does not include NUL */
+	return (dlen + (src - prev_src));
 }

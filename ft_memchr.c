@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-void* ft_memchr(const void* arr, int c, size_t n)
+void	*ft_memchr(const void *arr, int c, size_t n)
 {
 	size_t i;
-	
+
 	i = 0;
 	while (n > 0)
 	{
@@ -25,7 +25,7 @@ void* ft_memchr(const void* arr, int c, size_t n)
 			n--;
 		}
 		else
-			return &((char*)arr)[i];
+			return (&((char*)arr)[i]);
 	}
 	return (NULL);
 }

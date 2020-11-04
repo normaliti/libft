@@ -14,8 +14,8 @@
 
 int		get_start(char const *s1, char const *set)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (s1[i] != '\0')
@@ -37,8 +37,8 @@ int		get_start(char const *s1, char const *set)
 
 int		get_len(char const *s1, char const *set)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	i = ft_strlen(s1) - 1;
 	while (i >= 0)

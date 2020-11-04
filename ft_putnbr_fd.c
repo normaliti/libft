@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lweeper <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/04 16:57:35 by lweeper           #+#    #+#             */
+/*   Updated: 2020/11/04 16:57:38 by lweeper          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void	print_number_fd(long int a, int fd)
+static void	print_number_fd(long int a, int fd)
 {
 	if (a > 9)
 		print_number_fd(a / 10, fd);
 	ft_putchar_fd(a % 10 + 48, fd);
 }
 
-void ft_putnbr_fd(int n, int fd)
+void		ft_putnbr_fd(int n, int fd)
 {
 	long int long_int_nb;
 

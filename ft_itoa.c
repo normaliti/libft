@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_get_size(int n)
+static int	ft_get_size(int n)
 {
 	int				i;
 	unsigned int	nbr;
@@ -35,7 +35,7 @@ int		ft_get_size(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	int				size;
 	char			*res;

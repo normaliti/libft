@@ -20,16 +20,16 @@ FLAG = -Wall -Wextra -Werror
 
 all: $(NAME)
 $(NAME):$(OBJ)
-	gcc $(FLAG) -c $(SRC) $(SRC_BONUS)
+	gcc $(FLAG) -c $(SRC)
 	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME) 
-clean:
-	rm -f $(OBJ)
-	rm -f $(OBJ_BONUS)
-fclean: clean
-	rm -f $(NAME)
-re: fclean all
 
 bonus: $(OBJ) $(OBJ_BONUS)
-	ar rc $(NAME) $(OBJ)  $(OBJ_BONUS)
-	ranlib $(NAME)	
+	gcc $(FLAG) -c $(SRC) $(SRC_BONUS)
+	ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
+clean:
+	rm -rf $(OBJ) $(OBJ_BONUS)
+fclean: clean
+	rm -rf $(NAME)
+re: fclean all
+
+

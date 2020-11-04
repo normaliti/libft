@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lweeper <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/04 17:03:17 by lweeper           #+#    #+#             */
+/*   Updated: 2020/11/04 17:03:20 by lweeper          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	//t_list *tmp = (t_list*)malloc(sizeof(t_list));
-	//tmp->content = new->content;
-	t_list *tmp = new;
+	t_list *tmp;
+
+	tmp = new;
 	tmp->next = *lst;
-	*lst = tmp;	
-	
+	*lst = tmp;
 }

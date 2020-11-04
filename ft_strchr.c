@@ -12,14 +12,14 @@
 
 char	*ft_strchr(const char *str, int sym)
 {
-	while(*str)
+	while (*str)
 	{
-		if(*str==(char)sym)
+		if (*str == (char)sym)
 			return ((char*)str);
 		else
 			str++;
 	}
-	if(sym == '\0')
+	if (sym == '\0')
 		return ((char*)str);
 	return (0);
 }

@@ -16,12 +16,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*join;
 	int		i;
-	
+
 	i = 0;
-	if(s1 == NULL || s2 == NULL)
+	if (s1 == NULL || s2 == NULL)
 		return (0);
 	join = (char*)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if(join == NULL)
+	if (join == NULL)
 		return (NULL);
 	while (*s1)
 	{
@@ -29,9 +29,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 		s1++;
 	}
-	while(*s2)
+	while (*s2)
 	{
-		join[i]=*s2;
+		join[i] = *s2;
 		i++;
 		s2++;
 	}

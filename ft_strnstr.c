@@ -14,21 +14,20 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t needle_len;
-	int *ptr;
-	
+	size_t	needle_len;
+	int		*ptr;
+
 	ptr = 0;
-	
 	needle_len = ft_strlen(needle);
 	if (haystack == NULL || needle == NULL)
-	*ptr = 1;
-	if(needle_len == 0)
+		*ptr = 1;
+	if (needle_len == 0)
 		return ((char *)haystack);
 	if (len == 0)
 		return (NULL);
-	while((len >= needle_len) && *haystack)
+	while ((len >= needle_len) && *haystack)
 	{
-		if(!ft_strncmp(haystack, needle, needle_len))//если строки совпадают
+		if (!ft_strncmp(haystack, needle, needle_len))
 			return ((char *)haystack);
 		else
 		{

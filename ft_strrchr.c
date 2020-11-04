@@ -14,11 +14,12 @@
 
 char	*ft_strrchr(const char *str, int sym)
 {
-	const char *poz = 0;
+	const char *poz;
 
-	while(*str)
+	poz = 0;
+	while (*str)
 	{
-		if(*str == (char)sym)
+		if (*str == (char)sym)
 			poz = str;
 		str++;
 	}
