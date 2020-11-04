@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -37,7 +38,7 @@ static int		ft_word_count(char const *str, char c)
 	return (words_num);
 }
 
-char static		*ft_alloc_word(char const *s, char c)
+static char		*ft_alloc_word(char const *s, char c)
 {
 	int		size;
 	char	*tab;
