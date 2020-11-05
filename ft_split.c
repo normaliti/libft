@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -71,7 +70,7 @@ char			**ft_split(char const *s, char c)
 			s++;
 		if (!(res[count] = ft_alloc_word(s, c)))
 		{
-			while (count > 0)
+			while (count >= 0)
 				free(res[count--]);
 			free(res);
 			return (NULL);

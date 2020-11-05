@@ -18,6 +18,7 @@ FLAG = -Wall -Wextra -Werror
 
 ############################################################################
 
+
 all: $(NAME)
 $(NAME):$(OBJ)
 	ar rc $(NAME) $(OBJ)
@@ -27,8 +28,8 @@ bonus: $(OBJ) $(OBJ_BONUS)
 	ar rc $(NAME) $(OBJ) $(OBJ_BONUS)
 	ranlib $(NAME)
 
-.c.o:
-	gcc -c $(FLAG) $< -o $@ 
+trans: $(SRC) $(SRC_BONUS)
+	gcc -c $(FLAG) $< -o $@
 
 clean:
 	rm -rf $(OBJ) $(OBJ_BONUS)
