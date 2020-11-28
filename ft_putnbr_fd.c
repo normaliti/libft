@@ -19,6 +19,17 @@ static void	print_number_fd(long int a, int fd)
 	ft_putchar_fd(a % 10 + 48, fd);
 }
 
+void		ft_putnbr_fd_l(long n, int fd)
+{
+	if (n >= 0)
+		print_number_fd(n, fd);
+	else
+	{
+		ft_putchar_fd('-', fd);
+		print_number_fd((-1) * n, fd);
+	}
+}
+
 void		ft_putnbr_fd(int n, int fd)
 {
 	long int long_int_nb;
