@@ -67,5 +67,9 @@ void				ft_lstclear(t_list **lst, void(*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 							void (*del)(void *));
+int					ft_min_i(int i1, i2);
+void				ft_putnbr_fd_l(long n, int fd);
+int					ft_abs_i(int a);
+int					ft_abs_l(long a);
 
 #endif
